@@ -74,16 +74,16 @@ for event in event_ls :
     
 
     # evt_mall 
-    # 2. 대상 샵 
-    try :
-        evt_mall = soup.find(class_ = 'cm_mall_ic ty_text_s').text
-    except :
-        evt_mall = soup.find(class_ = 'cevent_mall_ic cm_mall_ic ty_circle_m').text
-    evt_mall = evt_mall.splitlines()
-    evt_mall = [m for m in evt_mall if m != '']
+    # 2. 대상 샵 -> 사이트 구조 변경으로 대상 샵 제거 
+    # try :
+    #     evt_mall = soup.find(class_ = 'cm_mall_ic ty_text_s').text
+    # except :
+    #     evt_mall = soup.find(class_ = 'cevent_mall_ic cm_mall_ic ty_circle_m').text
+    # evt_mall = evt_mall.splitlines()
+    # evt_mall = [m for m in evt_mall if m != '']
 
-    if len(evt_mall) < 1 :
-        evt_mall = 'none'
+    # if len(evt_mall) < 1 :
+    #     evt_mall = 'none'
         
     # text 
     evt_text = soup.text.splitlines()
@@ -150,7 +150,7 @@ for event in event_ls :
                        ,"evt_title" : evt_title
                        ,"evt_start_dt" : evt_start_dt
                        ,"evt_end_dt" :  evt_end_dt
-                       ,"evt_mall" : evt_mall
+                      # ,"evt_mall" : evt_mall
                        ,"evt_desc" : evt_desc}])
     df = pd.concat([df, row], ignore_index = True)
 
