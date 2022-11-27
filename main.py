@@ -170,6 +170,6 @@ for r in ws.rows :
     if row_index == 1 : 
         continue
     else : 
-        ws['I'+str(row_index)] = f'''= SUBSTITUTE(H{row_index}, "', '", CHAR(10)) '''
+        ws['H'+str(row_index)] = f'''= SUBSTITUTE(G{row_index}, "', '", CHAR(10)) '''
     
 wb.save(result_path)
